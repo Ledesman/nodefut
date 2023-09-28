@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancha Lo de diego</title>
+</head>
+<body>
+    <button id="checkout">Pagar</button>
+    <button id="checkout2">Cancha2 Pagar</button>
+
+
+    <script>
+        const checkout = document.getElementById('checkout')
+        checkout.addEventListener('click', async () =>{
+         const  respuesta = await fetch('/create-order',{
+                method: 'POST'
+            })
+            const data = await respuesta.json()
+            console.log(data)
+            window.location.href = data.init_point;
+        })
+    </script>
+</body>
+</html>
